@@ -30,8 +30,8 @@ def chat(update : Update , context : CallbackContext):
         logic_adapters=[
         'chatterbot.logic.BestMatch'
     ])
-    trainer = UbuntuCorpusTrainer(robot)
-    trainer.train()
+    trainer = ChatterBotCorpusTrainer(robot)
+    trainer.train("chatterbot.corpus.english.conversations")
     user_message = update.message.text
     bot_message = robot.get_response(user_message)
     voice_bot = gTTS(text = str(bot_message) , lang = "en" , slow = False)
